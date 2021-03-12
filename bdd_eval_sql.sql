@@ -8,7 +8,7 @@ salle_format ( id_salle (pk fk), id_format (pk fk) )
 films ( id_film (pk), id_format (fk), titre_film, durée )
 tarifs ( id_tarif (pk), nom_tarif, justificatif, prix )
 seances ( id_seance (pk), id_cinema (fk), id_film (fk), id_salle (fk), date_seance, heure_debut_seance, heure_fin_seance )
-reservations ( id_reservation (pk),id_user(fk), date_reservation, heure_reservation )
+reservations ( id_reservation (pk),id_client(fk), date_reservation, heure_reservation )
 lignes_reservation ( id_reservation (pk fk), id_ligne (pk), id_seance (fk), id_tarif (fk), nombre_places, montant_ligne )*/
 
 
