@@ -1,5 +1,5 @@
 /*MLD : *Primary key(pk)* *foreign key(fk)*
-utilisateur ( id(pk), nom, prenom, email, login, mdp, adresse, cp, ville)
+client ( id(pk), nom, prenom, email, login, mdp, adresse, cp, ville)
 villes ( id_ville (pk), nom_ville, code_postal )
 cinemas ( id_cinema (pk), adresse, id_ville (fk), contact )
 salles ( id_salle (pk), id_cinema (fk), nombre_sieges )
@@ -12,7 +12,7 @@ reservations ( id_reservation (pk),id_user(fk), date_reservation, heure_reservat
 lignes_reservation ( id_reservation (pk fk), id_ligne (pk), id_seance (fk), id_tarif (fk), nombre_places, montant_ligne )*/
 
 
-CREATE TABLE IF NOT EXISTS utilisateur(
+CREATE TABLE IF NOT EXISTS client(
      id varchar(5) PRIMARY KEY NOT NULL,
      nom varchar(255) DEFAULT NULL,
      prenom varchar(255) DEFAULT NULL,
@@ -88,10 +88,10 @@ CREATE TABLE IF NOT EXISTS seances (
 
 CREATE TABLE IF NOT EXISTS reservations (
      id_reservation int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-     id_user varchar(5) NOT NULL,
+     id_client varchar(5) NOT NULL,
      date_reservation date NOT NULL,
      heure_reservation time NOT NULL,
-     FOREIGN KEY(id_user) REFERENCES utilisateur(id)
+     FOREIGN KEY(id_client) REFERENCES client(id)
 );
 
 CREATE TABLE IF NOT EXISTS ligne_reservation (
